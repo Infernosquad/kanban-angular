@@ -1,0 +1,11 @@
+.kanban-board {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  overflow-x: scroll;
+  > * {
+    width: 300px;
+    min-width: 300px;
+  }
+}

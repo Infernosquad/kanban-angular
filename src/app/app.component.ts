@@ -7,10 +7,11 @@ import {KanbanPlaceholderComponent} from "./kanban-placeholder/kanban-placeholde
 import KanbanColumn from '../models/kanban-column';
 import {v4 as uuidv4} from 'uuid';
 import KanbanCard from "../models/kanban-card";
+import {KanbanCardComponent} from "./kanban-card/kanban-card.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Button, Toolbar, KanbanColumnComponent, KanbanPlaceholderComponent],
+  imports: [RouterOutlet, Button, Toolbar, KanbanColumnComponent, KanbanPlaceholderComponent, KanbanCardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -44,7 +45,7 @@ export class AppComponent {
     },
     {
       id: uuidv4(),
-      title: 'In Progress',
+      title: 'In Progress dddddddddddd ddddddddddddddddddddd dddddddddddddddddddddddddddddddddddddddddddddd',
       cards: [...this.cards],
     },
     {

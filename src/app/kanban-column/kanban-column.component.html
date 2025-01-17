@@ -1,9 +1,12 @@
 <div class="kanban-column">
-    <h3>{{column.title}}</h3>
-    <div class="kanban-card-list">
+    @if(column) {
+        <h3>{{column.title}}</h3>
         @for (card of column.cards; track card.id) {
             <app-kanban-card [card]="card" />
         }
         <app-kanban-placeholder title="Add card" (click)="handleAddCard()" />
-    </div>
+    } @else {
+        <h3></h3>
+        <app-kanban-placeholder title="Add column" (click)="handleAddColumn()" />
+    }
 </div>

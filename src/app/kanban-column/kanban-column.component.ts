@@ -13,10 +13,14 @@ import KanbanColumn from "../../models/kanban-column";
   styleUrl: './kanban-column.component.scss'
 })
 export class KanbanColumnComponent {
-  @Input () column!: KanbanColumn;
+  @Input () column: KanbanColumn | undefined;
   @Output() cardAdded = new EventEmitter<void>();
+  @Output() columnAdded = new EventEmitter<void>();
 
   handleAddCard() {
     this.cardAdded.emit();
+  }
+  handleAddColumn() {
+    this.columnAdded.emit();
   }
 }

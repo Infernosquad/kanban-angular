@@ -9,12 +9,11 @@
             </div>
         </ng-template>
     </p-toolbar>
-
     <div class="kanban-board">
         @for (column of columns; track column.id) {
             <app-kanban-column [column]="column" (cardAdded)="handleAddCard(column)" />
         }
-        <app-kanban-placeholder (click)="handleAddColumn()" title="Add column" />
+        <app-kanban-column (columnAdded)="handleAddColumn()" />
     </div>
 
 </main>
