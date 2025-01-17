@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, input} from '@angular/core';
 
 @Component({
   selector: 'app-kanban-placeholder',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './kanban-placeholder.component.scss'
 })
 export class KanbanPlaceholderComponent {
-
+  title = input('');
 }
