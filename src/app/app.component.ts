@@ -6,10 +6,11 @@ import {Avatar} from "primeng/avatar";
 import {Panel} from "primeng/panel";
 import {Card} from "primeng/card";
 import {KanbanColumnComponent} from "./kanban-column/kanban-column.component";
+import {KanbanPlaceholderComponent} from "./kanban-placeholder/kanban-placeholder.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Button, Toolbar, Avatar, Panel, Card, KanbanColumnComponent],
+  imports: [RouterOutlet, Button, Toolbar, Avatar, Panel, Card, KanbanColumnComponent, KanbanPlaceholderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

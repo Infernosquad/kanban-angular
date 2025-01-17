@@ -1,8 +1,10 @@
-<p-panel header="Header" [style]="{'background': 'transparent'}">
-    <p-card>
-        <p class="m-0">
-            Lorem ipsum dolor sit amet...
-        </p>
-    </p-card>
-    <p-button label="Add Task" text plain/>
-</p-panel>
+<div class="kanban-column">
+    <h3>Header</h3>
+    <div class="kanban-card-list">
+        <app-kanban-card />
+        <app-kanban-card />
+        <app-kanban-card />
+        <app-kanban-card />
+        <app-kanban-placeholder />
+    </div>
+</div>
