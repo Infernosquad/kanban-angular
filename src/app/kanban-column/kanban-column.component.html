@@ -1,10 +1,9 @@
 <div class="kanban-column">
-    <h3>Header</h3>
+    <h3>{{column.title}}</h3>
     <div class="kanban-card-list">
-        <app-kanban-card />
-        <app-kanban-card />
-        <app-kanban-card />
-        <app-kanban-card />
-        <app-kanban-placeholder title="Add card" />
+        @for (card of column.cards; track card.id) {
+            <app-kanban-card [card]="card" />
+        }
+        <app-kanban-placeholder title="Add card" (click)="handleAddCard()" />
     </div>
 </div>

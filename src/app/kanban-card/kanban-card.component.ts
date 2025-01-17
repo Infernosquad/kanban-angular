@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, input} from '@angular/core';
 import {Card} from "primeng/card";
+import KanbanCard from '../../models/kanban-card';
 
 @Component({
   selector: 'app-kanban-card',
@@ -10,5 +11,6 @@ import {Card} from "primeng/card";
   styleUrl: './kanban-card.component.scss'
 })
 export class KanbanCardComponent {
+  card = input<KanbanCard>()
 
 }

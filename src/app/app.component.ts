@@ -5,6 +5,7 @@ import {Toolbar} from "primeng/toolbar";
 import {KanbanColumnComponent} from "./kanban-column/kanban-column.component";
 import {KanbanPlaceholderComponent} from "./kanban-placeholder/kanban-placeholder.component";
 import KanbanColumn from '../models/kanban-column';
+import {v4 as uuidv4} from 'uuid';
 import KanbanCard from "../models/kanban-card";
 
 @Component({
@@ -18,38 +19,58 @@ export class AppComponent {
 
   cards: KanbanCard[] = [
     {
-      id: '',
+      id: uuidv4(),
       title: 'Lorem ipsum ....'
     },
     {
-      id: '',
+      id: uuidv4(),
       title: 'Lorem ipsum ....'
     },
     {
-      id: '',
+      id: uuidv4(),
       title: 'Lorem ipsum ....'
     },
     {
-      id: '',
+      id: uuidv4(),
       title: 'Lorem ipsum ....'
     },
   ]
 
   columns: KanbanColumn[] = [
     {
-      id: '',
+      id: uuidv4(),
       title: 'To Do',
-      cards: this.cards,
+      cards: [...this.cards],
     },
     {
-      id: '',
+      id: uuidv4(),
       title: 'In Progress',
-      cards: this.cards,
+      cards: [...this.cards],
     },
     {
-      id: '',
+      id: uuidv4(),
       title: 'Done',
-      cards: this.cards
+      cards: [...this.cards],
     },
   ]
+
+  handleAddColumn() {
+    this.columns.push({
+      id: uuidv4(),
+      title: 'New Column',
+      cards: []
+    })
+  }
+  handleAddCard(column: KanbanColumn) {
+    this.columns = this.columns.map(c => {
+      if (c.id === column.id) {
+        column.cards.push({
+          id: uuidv4(),
+          title: 'New Card'
+        })
+        return column
+      }
+      return c
+    });
+  }
 }

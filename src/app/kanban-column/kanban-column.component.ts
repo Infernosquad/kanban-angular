@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {KanbanCardComponent} from "../kanban-card/kanban-card.component";
 import {KanbanPlaceholderComponent} from "../kanban-placeholder/kanban-placeholder.component";
 import KanbanColumn from "../../models/kanban-column";
@@ -13,5 +13,10 @@ import KanbanColumn from "../../models/kanban-column";
   styleUrl: './kanban-column.component.scss'
 })
 export class KanbanColumnComponent {
-  column = input<KanbanColumn>()
+  @Input () column!: KanbanColumn;
+  @Output() cardAdded = new EventEmitter<void>();
+
+  handleAddCard() {
+    this.cardAdded.emit();
+  }
 }
