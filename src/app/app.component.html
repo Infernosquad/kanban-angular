@@ -11,9 +11,9 @@
     </p-toolbar>
 
     <div class="kanban-board">
-        <app-kanban-column />
-        <app-kanban-column />
-        <app-kanban-column />
+        @for (column of columns; track column.id) {
+            <app-kanban-column [column]="column" />
+        }
         <app-kanban-placeholder title="Add column" />
     </div>
 

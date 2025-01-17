@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, input} from '@angular/core';
 import {KanbanCardComponent} from "../kanban-card/kanban-card.component";
 import {KanbanPlaceholderComponent} from "../kanban-placeholder/kanban-placeholder.component";
+import KanbanColumn from "../../models/kanban-column";
 
 @Component({
   selector: 'app-kanban-column',
@@ -12,5 +13,5 @@ import {KanbanPlaceholderComponent} from "../kanban-placeholder/kanban-placehold
   styleUrl: './kanban-column.component.scss'
 })
 export class KanbanColumnComponent {
-
+  column = input<KanbanColumn>()
 }
