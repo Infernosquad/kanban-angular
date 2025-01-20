@@ -2,7 +2,7 @@
     @if(column) {
         <h3>{{column.title}}</h3>
         @for (card of column.cards; track card.id) {
-            <app-kanban-card [card]="card" />
+            <app-kanban-card [card]="card" cdkDrag [cdkDragData]="card" />
         }
         <app-kanban-placeholder title="Add card" (click)="handleAddCard()" />
     } @else {

@@ -1,4 +1,5 @@
-<p-card cdkDrag [cdkDragData]="card()">
+<p-card >
+    <div class="drag-placeholder" *cdkDragPlaceholder></div>
     <p class="m-0">
         {{ card()?.title }}
     </p>
