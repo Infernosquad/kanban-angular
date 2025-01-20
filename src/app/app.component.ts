@@ -3,55 +3,61 @@ import {RouterOutlet} from '@angular/router';
 import {Button} from "primeng/button";
 import {Toolbar} from "primeng/toolbar";
 import {KanbanColumnComponent} from "./kanban-column/kanban-column.component";
-import {KanbanPlaceholderComponent} from "./kanban-placeholder/kanban-placeholder.component";
 import KanbanColumn from '../models/kanban-column';
 import {v4 as uuidv4} from 'uuid';
 import KanbanCard from "../models/kanban-card";
-import {KanbanCardComponent} from "./kanban-card/kanban-card.component";
+import {CdkDragDrop, CdkDropList, CdkDropListGroup, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
+
+function generateCards(): KanbanCard[] {
+  return [
+    {
+      id: uuidv4(),
+      index: 0,
+      title: 'Card 1 ....'
+    },
+    {
+      id: uuidv4(),
+      index: 1,
+      title: 'Card 2 ....'
+    },
+    {
+      id: uuidv4(),
+      index: 2,
+      title: 'Card 3 ....'
+    },
+    {
+      id: uuidv4(),
+      index: 3,
+      title: 'Card 4 ....'
+    },
+  ]
+}
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Button, Toolbar, KanbanColumnComponent, KanbanPlaceholderComponent, KanbanCardComponent],
+  imports: [RouterOutlet, Button, Toolbar, KanbanColumnComponent, CdkDropListGroup, CdkDropList],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'kanban-angular';
 
-  cards: KanbanCard[] = [
-    {
-      id: uuidv4(),
-      title: 'Lorem ipsum ....'
-    },
-    {
-      id: uuidv4(),
-      title: 'Lorem ipsum ....'
-    },
-    {
-      id: uuidv4(),
-      title: 'Lorem ipsum ....'
-    },
-    {
-      id: uuidv4(),
-      title: 'Lorem ipsum ....'
-    },
-  ]
 
   columns: KanbanColumn[] = [
     {
       id: uuidv4(),
       title: 'To Do',
-      cards: [...this.cards],
+      cards: generateCards(),
     },
     {
       id: uuidv4(),
-      title: 'In Progress dddddddddddd ddddddddddddddddddddd dddddddddddddddddddddddddddddddddddddddddddddd',
-      cards: [...this.cards],
+      title: 'In Progress',
+      cards: generateCards()
     },
     {
       id: uuidv4(),
       title: 'Done',
-      cards: [...this.cards],
+      cards: generateCards()
     },
   ]
 
@@ -73,5 +79,18 @@ export class AppComponent {
       }
       return c
     });
+  }
+
+  drop(event: CdkDragDrop<KanbanColumn>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray<KanbanCard>(event.container.data.cards, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem<KanbanCard>(
+        event.previousContainer.data.cards,
+        event.container.data.cards,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
   }
 }

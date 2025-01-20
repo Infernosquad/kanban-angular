@@ -9,9 +9,9 @@
             </div>
         </ng-template>
     </p-toolbar>
-    <div class="kanban-board">
+    <div class="kanban-board" cdkDropListGroup>
         @for (column of columns; track column.id) {
-            <app-kanban-column [column]="column" (cardAdded)="handleAddCard(column)" />
+            <app-kanban-column cdkDropList [cdkDropListData]="column" (cdkDropListDropped)="drop($event)" [column]="column" (cardAdded)="handleAddCard(column)" />
         }
         <app-kanban-column (columnAdded)="handleAddColumn()" />
     </div>

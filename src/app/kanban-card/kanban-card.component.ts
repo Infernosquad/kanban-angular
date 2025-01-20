@@ -1,11 +1,13 @@
 import {Component, input} from '@angular/core';
 import {Card} from "primeng/card";
 import KanbanCard from '../../models/kanban-card';
+import {CdkDrag} from "@angular/cdk/drag-drop";
 
 @Component({
   selector: 'app-kanban-card',
   imports: [
-    Card
+    Card,
+    CdkDrag
   ],
   templateUrl: './kanban-card.component.html',
   styleUrl: './kanban-card.component.scss'
