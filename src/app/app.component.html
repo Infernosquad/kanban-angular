@@ -10,11 +10,12 @@
         </ng-template>
     </p-toolbar>
     <div class="kanban-board" cdkDropListGroup>
-        @for (column of columns; track column.id) {
+        @for (column of this.kanbanService.columns(); track column.id) {
             <app-kanban-column cdkDropList [cdkDropListData]="column" (cdkDropListDropped)="drop($event)" [column]="column" (cardAdded)="handleAddCard(column)" />
         }
         <app-kanban-column (columnAdded)="handleAddColumn()" />
     </div>
+    <app-kanban-card-modal />
 
 </main>
 

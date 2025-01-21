@@ -1,0 +1,20 @@
+<p-dialog [modal]="true" [(visible)]="display" [style]="{ width: '25rem' }" (onHide)="closeModal()">
+    <ng-template #header>
+        <p-inplace>
+            <ng-template #display>
+                <h3>{{ this.kanbanService.currentCard()?.title }}</h3>
+            </ng-template>
+            <ng-template #content let-closeCallback="closeCallback">
+                <p-inputgroup>
+                    <input pInputText placeholder="Vote" [formControl]="title"/>
+                    <p-inputgroup-addon>
+                        <p-button icon="pi pi-check" severity="secondary" (click)="save();closeCallback($event)"/>
+                    </p-inputgroup-addon>
+                    <p-inputgroup-addon>
+                        <p-button (click)="closeCallback($event)" icon="pi pi-times" severity="secondary"/>
+                    </p-inputgroup-addon>
+                </p-inputgroup>
+            </ng-template>
+        </p-inplace>
+    </ng-template>
+</p-dialog>
