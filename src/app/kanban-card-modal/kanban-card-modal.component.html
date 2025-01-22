@@ -6,7 +6,7 @@
             </ng-template>
             <ng-template #content let-closeCallback="closeCallback">
                 <p-inputgroup>
-                    <input pInputText placeholder="Vote" [formControl]="title"/>
+                    <input pInputText [formControl]="title"/>
                     <p-inputgroup-addon>
                         <p-button icon="pi pi-check" severity="secondary" (click)="save();closeCallback($event)"/>
                     </p-inputgroup-addon>
@@ -17,4 +17,14 @@
             </ng-template>
         </p-inplace>
     </ng-template>
+
+    <p-editor formControlName="description">
+        <ng-template #header>
+            <span class="ql-formats">
+                <button type="button" class="ql-bold" aria-label="Bold"></button>
+                <button type="button" class="ql-italic" aria-label="Italic"></button>
+                <button type="button" class="ql-underline" aria-label="Underline"></button>
+            </span>
+        </ng-template>
+    </p-editor>
 </p-dialog>
