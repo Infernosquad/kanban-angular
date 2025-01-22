@@ -21,3 +21,10 @@ body {
 .cdk-drag-animating {
   transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
 }
+.cdk-drop-list-dragging app-kanban-placeholder{
+  display: none;
+}
+
+app-kanban-column > .drag-placeholder {
+  margin-top: 50px;
+}

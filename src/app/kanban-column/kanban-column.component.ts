@@ -1,15 +1,15 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, HostBinding, Input, Output} from '@angular/core';
 import {KanbanCardComponent} from "../kanban-card/kanban-card.component";
 import {KanbanPlaceholderComponent} from "../kanban-placeholder/kanban-placeholder.component";
 import KanbanColumn from "../../models/kanban-column";
-import {CdkDrag, CdkDragPlaceholder} from "@angular/cdk/drag-drop";
+import {CdkDrag} from "@angular/cdk/drag-drop";
 
 @Component({
   selector: 'app-kanban-column',
   imports: [
     KanbanCardComponent,
     KanbanPlaceholderComponent,
-    CdkDrag
+    CdkDrag,
   ],
   templateUrl: './kanban-column.component.html',
   styleUrl: './kanban-column.component.scss'
