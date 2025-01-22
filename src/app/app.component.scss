@@ -4,8 +4,16 @@
   flex-direction: row;
   gap: 20px;
   overflow-x: scroll;
+
   > * {
     width: 300px;
     min-width: 300px;
   }
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
 }

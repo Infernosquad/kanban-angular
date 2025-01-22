@@ -8,11 +8,18 @@ import KanbanCard from "../models/kanban-card";
 import {CdkDragDrop, CdkDropList, CdkDropListGroup, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
 import {KanbanCardModalComponent} from "./kanban-card-modal/kanban-card-modal.component";
 import {KanbanService} from "./kanban.service";
+import {InputGroup} from "primeng/inputgroup";
+import {InputGroupAddon} from "primeng/inputgroupaddon";
+import {FormsModule} from "@angular/forms";
+import {InputText} from "primeng/inputtext";
+import {IconField} from "primeng/iconfield";
+import {InputIcon} from "primeng/inputicon";
+import {Avatar} from "primeng/avatar";
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Button, Toolbar, KanbanColumnComponent, CdkDropListGroup, CdkDropList, KanbanCardModalComponent],
+  imports: [RouterOutlet, Button, Toolbar, KanbanColumnComponent, CdkDropListGroup, CdkDropList, KanbanCardModalComponent, InputGroup, InputGroupAddon, FormsModule, InputText, IconField, InputIcon, Avatar],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

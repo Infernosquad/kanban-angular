@@ -1,4 +1,13 @@
 @import "primeicons/primeicons.css";
+
+.pi {
+  color: black;
+}
+
+.logo {
+  height: 50px;
+}
+
 body {
   background-color: color-mix(in srgb, var(--p-surface-50) calc(100% * var(--tw-bg-opacity, 1)), transparent)
 }
