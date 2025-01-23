@@ -32,9 +32,14 @@ function generateCards(): KanbanCard[] {
   providedIn: 'root'
 })
 export class KanbanService {
-  constructor() { }
+  constructor() {
+    this.filteredColumns.update(() => this.columns());
+  }
 
   public currentCard = signal<KanbanCard | null>(null);
+
+  public filteredColumns = signal<KanbanColumn[]>([]);
+
   public columns = signal<KanbanColumn[]>([
     {
       id: uuidv4(),
@@ -94,5 +99,19 @@ export class KanbanService {
     })
 
     this.columns.update(() => columns)
+  }
+
+  filterColumns(text: string) {
+    if (text.length > 0) {
+      const columns = this.columns().map(column => {
+        const cards = column.cards.filter(card => card.title.toLowerCase().includes(text))
+
+        return {...column, cards}
+      })
+
+      this.columns.update(() => columns)
+    } else {
+      this.columns.update(() => this.filteredColumns())
+    }
   }
 }

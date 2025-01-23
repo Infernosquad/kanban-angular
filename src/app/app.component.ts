@@ -25,7 +25,7 @@ import {Avatar} from "primeng/avatar";
 })
 export class AppComponent {
   title = 'kanban-angular';
-  currentCard: KanbanCard | null = null;
+  searchQuery = '';
 
   constructor(public kanbanService: KanbanService) {
   }
