@@ -20,11 +20,13 @@ import {Menu} from "primeng/menu";
 import {MenuItem} from "primeng/api";
 import {BoardService} from "./board.service";
 import {PanelMenu} from "primeng/panelmenu";
+import {Badge} from "primeng/badge";
+import {Ripple} from "primeng/ripple";
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Button, Toolbar, KanbanColumnComponent, CdkDropListGroup, CdkDropList, KanbanCardModalComponent, InputGroup, InputGroupAddon, FormsModule, InputText, IconField, InputIcon, Avatar, Drawer, Menu, PanelMenu],
+  imports: [RouterOutlet, Button, Toolbar, KanbanColumnComponent, CdkDropListGroup, CdkDropList, KanbanCardModalComponent, InputGroup, InputGroupAddon, FormsModule, InputText, IconField, InputIcon, Avatar, Drawer, Menu, PanelMenu, Badge, Ripple],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
