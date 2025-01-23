@@ -15,19 +15,36 @@ import {InputText} from "primeng/inputtext";
 import {IconField} from "primeng/iconfield";
 import {InputIcon} from "primeng/inputicon";
 import {Avatar} from "primeng/avatar";
+import {Drawer} from "primeng/drawer";
+import {Menu} from "primeng/menu";
+import {MenuItem} from "primeng/api";
+import {BoardService} from "./board.service";
+import {PanelMenu} from "primeng/panelmenu";
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Button, Toolbar, KanbanColumnComponent, CdkDropListGroup, CdkDropList, KanbanCardModalComponent, InputGroup, InputGroupAddon, FormsModule, InputText, IconField, InputIcon, Avatar],
+  imports: [RouterOutlet, Button, Toolbar, KanbanColumnComponent, CdkDropListGroup, CdkDropList, KanbanCardModalComponent, InputGroup, InputGroupAddon, FormsModule, InputText, IconField, InputIcon, Avatar, Drawer, Menu, PanelMenu],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'kanban-angular';
   searchQuery = '';
+  displayDrawer = false;
 
-  constructor(public kanbanService: KanbanService) {
+  items: MenuItem[] = [
+    {
+      label: 'Save',
+      icon: 'pi pi-save'
+    },
+    {
+      label: 'Update',
+      icon: 'pi pi-refresh'
+    }
+  ]
+
+  constructor(public kanbanService: KanbanService, public boardService: BoardService) {
   }
 
 

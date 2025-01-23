@@ -6,7 +6,7 @@
         <ng-template #start>
             <div class="toolbar">
                 <img class="logo" src="/logo.svg" alt="">
-                <i class="pi pi-bars" style="font-size: 2rem"></i>
+                <i class="pi pi-bars" style="font-size: 2rem" (click)="displayDrawer = true"></i>
             </div>
         </ng-template>
         <ng-template #center>
@@ -32,6 +32,11 @@
         <app-kanban-column (columnAdded)="handleAddColumn()"/>
     </div>
     <app-kanban-card-modal/>
+
+    <p-drawer [(visible)]="displayDrawer" header="Boards">
+        <p-panelmenu [model]="this.boardService.boards()" styleClass="w-full md:w-20rem"></p-panelmenu>
+        <p-button label="Add Board" icon="pi pi-plus" (click)="this.boardService.addBoard()"></p-button>
+    </p-drawer>
 
 </main>
 
