@@ -35,7 +35,7 @@ import {SearchPipe} from "../../pipes/search.pipe";
 })
 export class AppComponent {
   title = 'kanban-angular';
-  displayDrawer = false;
+  public displayDrawer = false;
 
   constructor(public kanbanService: KanbanService) {
   }

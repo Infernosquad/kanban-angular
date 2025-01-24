@@ -2,7 +2,7 @@
     <ng-template #start>
         <div class="toolbar">
             <img class="logo" src="/logo.svg" alt="">
-            <i class="pi pi-bars" style="font-size: 2rem" (click)="displayDrawer = true"></i>
+            <i class="pi pi-bars" style="font-size: 2rem" (click)="openDrawer()"></i>
             @let currentBoard = this.boardService.currentBoard();
             @if (currentBoard) {
                 <span class="text-lg font-semibold">{{ currentBoard.label }}</span>

@@ -3,7 +3,7 @@
 
 <main class="main">
 
-    <app-header [displayDrawer]="displayDrawer" />
+    <app-header [(displayDrawer)]="displayDrawer" />
 
     <div class="kanban-board" cdkDropListGroup>
         @for (column of this.kanbanService.columns() | search: this.kanbanService.searchQuery; track column.id) {
@@ -14,7 +14,7 @@
     </div>
     <app-kanban-card-modal/>
 
-    <app-sidebar [displayDrawer]="displayDrawer" />
+    <app-sidebar [(displayDrawer)]="displayDrawer" />
 </main>
 
 <router-outlet/>

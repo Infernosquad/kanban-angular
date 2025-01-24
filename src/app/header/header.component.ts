@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Avatar} from "primeng/avatar";
 import {IconField} from "primeng/iconfield";
 import {InputIcon} from "primeng/inputicon";
@@ -24,7 +24,13 @@ import {BoardService} from "../../services/board.service";
 })
 export class HeaderComponent {
   @Input() public displayDrawer: boolean = false;
+  @Output() public displayDrawerChange = new EventEmitter<boolean>();
+
   public searchQuery: string = '';
+
+  openDrawer() {
+    this.displayDrawerChange.emit(true);
+  }
 
   constructor(public kanbanService: KanbanService, public boardService: BoardService) {
   }

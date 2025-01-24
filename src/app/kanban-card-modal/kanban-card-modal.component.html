@@ -1,4 +1,4 @@
-<p-dialog [modal]="true" [(visible)]="display" [style]="{ width: '25rem' }" (onHide)="closeModal()">
+<p-dialog [modal]="true" [(visible)]="display" [style]="{ width: '25rem' }" (onHide)="closeModal()" dismissableMask="true">
     <ng-template #header>
         <p-inplace>
             <ng-template #display>
