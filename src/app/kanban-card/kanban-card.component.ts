@@ -2,7 +2,7 @@ import {Component, input} from '@angular/core';
 import {Card} from "primeng/card";
 import KanbanCard from '../../models/kanban-card';
 import {CdkDragPlaceholder} from "@angular/cdk/drag-drop";
-import {KanbanService} from "../kanban.service";
+import {KanbanService} from "../../services/kanban.service";
 
 @Component({
   selector: 'app-kanban-card',

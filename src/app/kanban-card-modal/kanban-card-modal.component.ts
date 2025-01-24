@@ -5,7 +5,7 @@ import {Inplace} from "primeng/inplace";
 import {InputGroup} from "primeng/inputgroup";
 import {InputGroupAddon} from "primeng/inputgroupaddon";
 import {FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {KanbanService} from "../kanban.service";
+import {KanbanService} from "../../services/kanban.service";
 import {InputText} from "primeng/inputtext";
 import {Editor} from "primeng/editor";
 

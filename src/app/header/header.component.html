@@ -1,0 +1,26 @@
+<p-toolbar>
+    <ng-template #start>
+        <div class="toolbar">
+            <img class="logo" src="/logo.svg" alt="">
+            <i class="pi pi-bars" style="font-size: 2rem" (click)="displayDrawer = true"></i>
+            @let currentBoard = this.boardService.currentBoard();
+            @if (currentBoard) {
+                <span class="text-lg font-semibold">{{ currentBoard.label }}</span>
+            }
+        </div>
+    </ng-template>
+    <ng-template #center>
+        <p-iconfield iconPosition="left">
+            <p-inputicon styleClass="pi pi-search"/>
+            <input type="text" pInputText placeholder="Search" [ngModel]="searchQuery"
+                   (ngModelChange)="this.kanbanService.filterColumns($event)"
+            />
+        </p-iconfield>
+    </ng-template>
+    <ng-template #end>
+        <div class="flex items-center gap-2">
+            <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+                      [style]="{ width: '32px', height: '32px' }"/>
+        </div>
+    </ng-template>
+</p-toolbar>
