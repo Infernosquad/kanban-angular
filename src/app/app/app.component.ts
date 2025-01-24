@@ -24,11 +24,12 @@ import {Badge} from "primeng/badge";
 import {Ripple} from "primeng/ripple";
 import {SidebarComponent} from "../sidebar/sidebar.component";
 import {HeaderComponent} from "../header/header.component";
+import {SearchPipe} from "../../pipes/search.pipe";
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Toolbar, KanbanColumnComponent, CdkDropListGroup, CdkDropList, KanbanCardModalComponent, InputGroup, InputGroupAddon, FormsModule, InputText, IconField, InputIcon, Avatar, Drawer, Menu, PanelMenu, Badge, Ripple, SidebarComponent, HeaderComponent],
+  imports: [RouterOutlet, Toolbar, KanbanColumnComponent, CdkDropListGroup, CdkDropList, KanbanCardModalComponent, InputGroup, InputGroupAddon, FormsModule, InputText, IconField, InputIcon, Avatar, Drawer, Menu, PanelMenu, Badge, Ripple, SidebarComponent, HeaderComponent, SearchPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

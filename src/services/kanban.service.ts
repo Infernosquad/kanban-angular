@@ -39,6 +39,7 @@ export class KanbanService {
   public currentCard = signal<KanbanCard | null>(null);
 
   public filteredColumns = signal<KanbanColumn[]>([]);
+  public searchQuery = ''
 
   public columns = signal<KanbanColumn[]>([
     {
@@ -101,17 +102,11 @@ export class KanbanService {
     this.columns.update(() => columns)
   }
 
-  filterColumns(text: string) {
-    if (text.length > 0) {
-      const columns = this.columns().map(column => {
-        const cards = column.cards.filter(card => card.title.toLowerCase().includes(text))
-
-        return {...column, cards}
-      })
-
-      this.columns.update(() => columns)
+  search(query: string) {
+    if (query.trim().length > 0) {
+      this.searchQuery = query;
     } else {
-      this.columns.update(() => this.filteredColumns())
+      this.searchQuery = '';
     }
   }
 }

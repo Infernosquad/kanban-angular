@@ -6,7 +6,7 @@
     <app-header [displayDrawer]="displayDrawer" />
 
     <div class="kanban-board" cdkDropListGroup>
-        @for (column of this.kanbanService.columns(); track column.id) {
+        @for (column of this.kanbanService.columns() | search: this.kanbanService.searchQuery; track column.id) {
             <app-kanban-column cdkDropList [cdkDropListData]="column" (cdkDropListDropped)="drop($event)"
                                [column]="column" (cardAdded)="handleAddCard(column)"/>
         }

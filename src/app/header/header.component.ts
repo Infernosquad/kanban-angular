@@ -3,7 +3,7 @@ import {Avatar} from "primeng/avatar";
 import {IconField} from "primeng/iconfield";
 import {InputIcon} from "primeng/inputicon";
 import {InputText} from "primeng/inputtext";
-import {FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {Toolbar} from "primeng/toolbar";
 import {KanbanService} from "../../services/kanban.service";
 import {BoardService} from "../../services/board.service";
@@ -24,7 +24,7 @@ import {BoardService} from "../../services/board.service";
 })
 export class HeaderComponent {
   @Input() public displayDrawer: boolean = false;
-  public searchQuery = ''
+  public searchQuery: string = '';
 
   constructor(public kanbanService: KanbanService, public boardService: BoardService) {
   }
