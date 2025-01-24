@@ -5,6 +5,21 @@
 
     <app-header [(displayDrawer)]="displayDrawer" />
 
+    <div class="kanban-board-top">
+        <h1>
+            {{this.boardService.currentBoard()?.label}}
+        </h1>
+        <p-avatar-group>
+            <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" size="large" shape="circle" />
+            <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" size="large" shape="circle" />
+            <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/onyamalimba.png" size="large" shape="circle" />
+            <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/ionibowcher.png" size="large" shape="circle" />
+            <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/xuxuefeng.png" size="large" shape="circle" />
+            <p-avatar label="+2" shape="circle" size="large" />
+        </p-avatar-group>
+    </div>
+
+
     <div class="kanban-board" cdkDropListGroup>
         @for (column of this.kanbanService.columns() | search: this.kanbanService.searchQuery; track column.id) {
             <app-kanban-column cdkDropList [cdkDropListData]="column" (cdkDropListDropped)="drop($event)"

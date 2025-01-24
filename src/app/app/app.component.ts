@@ -25,11 +25,12 @@ import {Ripple} from "primeng/ripple";
 import {SidebarComponent} from "../sidebar/sidebar.component";
 import {HeaderComponent} from "../header/header.component";
 import {SearchPipe} from "../../pipes/search.pipe";
+import {AvatarGroup} from "primeng/avatargroup";
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Toolbar, KanbanColumnComponent, CdkDropListGroup, CdkDropList, KanbanCardModalComponent, InputGroup, InputGroupAddon, FormsModule, InputText, IconField, InputIcon, Avatar, Drawer, Menu, PanelMenu, Badge, Ripple, SidebarComponent, HeaderComponent, SearchPipe],
+  imports: [RouterOutlet, Toolbar, KanbanColumnComponent, CdkDropListGroup, CdkDropList, KanbanCardModalComponent, InputGroup, InputGroupAddon, FormsModule, InputText, IconField, InputIcon, Avatar, Drawer, Menu, PanelMenu, Badge, Ripple, SidebarComponent, HeaderComponent, SearchPipe, AvatarGroup],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -37,7 +38,7 @@ export class AppComponent {
   title = 'kanban-angular';
   public displayDrawer = false;
 
-  constructor(public kanbanService: KanbanService) {
+  constructor(public kanbanService: KanbanService, public boardService: BoardService) {
   }
 
 
