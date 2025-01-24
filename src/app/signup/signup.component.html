@@ -1,1 +1,19 @@
-<p>signup works!</p>
+<p-dialog header="Signup" [(visible)]="displaySignup" [modal]="true" [style]="{ width: '30vw' }" (onHide)="hideSignup()">
+  <div class="p-fluid">
+    <div class="p-field">
+      <label for="username">Username</label>
+      <input id="username" type="text" pInputText [(ngModel)]="username" />
+    </div>
+    <div class="p-field">
+      <label for="password">Password</label>
+      <input id="password" type="password" pInputText [(ngModel)]="password" />
+    </div>
+    <div class="p-field">
+      <label for="email">Email</label>
+      <input id="email" type="email" pInputText [(ngModel)]="email" />
+    </div>
+    <div class="p-field">
+      <p-button label="Signup" (click)="signup()"></p-button>
+    </div>
+  </div>
+</p-dialog>
