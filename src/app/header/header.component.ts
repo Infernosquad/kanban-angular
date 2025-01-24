@@ -24,12 +24,17 @@ import {BoardService} from "../../services/board.service";
 })
 export class HeaderComponent {
   @Input() public displayDrawer: boolean = false;
+  @Input() public displayLogin: boolean = false;
   @Output() public displayDrawerChange = new EventEmitter<boolean>();
+  @Output() public displayLoginChange = new EventEmitter<boolean>();
 
   public searchQuery: string = '';
 
   openDrawer() {
     this.displayDrawerChange.emit(true);
+  }
+  openLoginModal() {
+    this.displayLoginChange.emit(true);
   }
 
   constructor(public kanbanService: KanbanService, public boardService: BoardService) {

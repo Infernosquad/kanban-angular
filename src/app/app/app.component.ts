@@ -26,17 +26,19 @@ import {SidebarComponent} from "../sidebar/sidebar.component";
 import {HeaderComponent} from "../header/header.component";
 import {SearchPipe} from "../../pipes/search.pipe";
 import {AvatarGroup} from "primeng/avatargroup";
+import {LoginComponent} from "../login/login.component";
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Toolbar, KanbanColumnComponent, CdkDropListGroup, CdkDropList, KanbanCardModalComponent, InputGroup, InputGroupAddon, FormsModule, InputText, IconField, InputIcon, Avatar, Drawer, Menu, PanelMenu, Badge, Ripple, SidebarComponent, HeaderComponent, SearchPipe, AvatarGroup],
+  imports: [RouterOutlet, Toolbar, KanbanColumnComponent, CdkDropListGroup, CdkDropList, KanbanCardModalComponent, InputGroup, InputGroupAddon, FormsModule, InputText, IconField, InputIcon, Avatar, Drawer, Menu, PanelMenu, Badge, Ripple, SidebarComponent, HeaderComponent, SearchPipe, AvatarGroup, LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'kanban-angular';
   public displayDrawer = false;
+  public displayLogin = false;
 
   constructor(public kanbanService: KanbanService, public boardService: BoardService) {
   }

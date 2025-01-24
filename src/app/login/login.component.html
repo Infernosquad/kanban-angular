@@ -1,0 +1,15 @@
+<p-dialog header="Login" [(visible)]="displayLogin" [modal]="true" [style]="{ width: '30vw' }" (onHide)="hideLogin()">
+<div class="p-fluid">
+    <div class="p-field">
+        <label for="username">Username</label>
+        <input id="username" type="text" pInputText [(ngModel)]="username" />
+    </div>
+    <div class="p-field">
+        <label for="password">Password</label>
+        <input id="password" type="password" pInputText [(ngModel)]="password" />
+    </div>
+    <div class="p-field">
+        <p-button label="Login" (click)="login()"></p-button>
+    </div>
+</div>
+</p-dialog>
