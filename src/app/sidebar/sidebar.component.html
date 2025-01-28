@@ -6,26 +6,21 @@
     @let boards = this.boardService.boards();
     <div class="board-menu">
         @for (item of boards; track item.id) {
-            <div class="board-menu-item active">
-                <a (click)="this.boardService.selectCurrentBoard(item.id)">
-                    <span class="ml-2">{{ item.label }}</span>
-                </a>
-
+            <div class="board-menu-item" [ngClass]="{ 'active': item.id === this.boardService.currentBoard()?.id }">
+                <a (click)="this.boardService.selectCurrentBoard(item.id)">{{ item.label }}</a>
                 <i class="pi pi-ellipsis-h" (click)="op.toggle($event)"></i>
-
             </div>
             <p-popover #op>
-                <p-menu [model]="[
-                    {
-                        label: 'Edit',
-                        icon: 'pi pi-pencil',
-                    },
-                    {
-                        label: 'Delete',
-                        icon: 'pi pi-trash',
-                    }
-                ]" />
+                <a>
+                    <i class="pi pi-pencil"></i>
+                    <span>Edit</span>
+                </a>
+                <a (click)="confirmDelete(item)">
+                    <i class="pi pi-pencil"></i>
+                    <span>Delete</span>
+                </a>
             </p-popover>
         }
     </div>
+    <p-confirm-dialog message="Are you sure you want to proceed?" header="Confirmation" icon="pi pi-exclamation-triangle" />
 </p-drawer>

@@ -5,11 +5,13 @@ import {providePrimeNG} from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 
 import {routes} from './app.routes';
+import {ConfirmationService} from "primeng/api";
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({eventCoalescing: true}), provideRouter(routes),
     provideAnimationsAsync(),
+    ConfirmationService,
     providePrimeNG({
       theme: {
         preset: Aura,

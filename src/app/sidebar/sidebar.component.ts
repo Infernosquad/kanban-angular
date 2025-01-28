@@ -1,21 +1,19 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Button} from "primeng/button";
 import {Drawer} from "primeng/drawer";
-import {PanelMenu} from "primeng/panelmenu";
-import {Ripple} from "primeng/ripple";
 import {BoardService} from "../../services/board.service";
 import {Popover} from "primeng/popover";
-import {Menu} from "primeng/menu";
+import {NgClass} from "@angular/common";
+import {ConfirmDialog} from "primeng/confirmdialog";
+import Board from "../../models/board";
+import {ConfirmationService} from "primeng/api";
 
 @Component({
   selector: 'app-sidebar',
   imports: [
-    Button,
     Drawer,
-    PanelMenu,
-    Ripple,
     Popover,
-    Menu
+    NgClass,
+    ConfirmDialog
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
@@ -24,10 +22,18 @@ export class SidebarComponent {
   @Input() public displayDrawer: boolean = false;
   @Output() public displayDrawerChange = new EventEmitter<boolean>();
 
+  constructor(public confirmationService: ConfirmationService, public boardService: BoardService) {
+  }
+
   closeDrawer() {
     this.displayDrawerChange.emit(false);
   }
 
-  constructor(public boardService: BoardService) {
+  confirmDelete(board: Board) {
+    this.confirmationService.confirm({
+      accept: () => {
+        this.boardService.deleteBoard(board);
+      }
+    });
   }
 }
