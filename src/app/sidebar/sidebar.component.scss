@@ -51,3 +51,14 @@
     }
   }
 }
+
+.board-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  .controls {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: end;
+  }
+}

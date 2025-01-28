@@ -15,7 +15,7 @@
             </div>
             <p-popover #op>
                 <div class="popover-menu">
-                    <a>
+                    <a (click)="openEditBoard(item)">
                         <i class="pi pi-pencil"></i>
                         <span>Edit</span>
                     </a>
@@ -27,5 +27,18 @@
             </p-popover>
         }
     </div>
+
+    <p-dialog header="Header" [(visible)]="visibleEditBoardDialog" [modal]="true" [draggable]="false" appendTo="body">
+        <form class="board-form" [formGroup]="boardForm">
+            <input placeholder="Title" pInputText type="text" formControlName="label">
+            <input placeholder="Url" pInputText type="text" formControlName="url">
+            <p-colorpicker formControlName="color" />
+            <div class="controls">
+                <p-button label="Cancel" severity="secondary" (click)="visibleEditBoardDialog = false"/>
+                <p-button label="Save" (click)="saveBoard()"/>
+            </div>
+        </form>
+    </p-dialog>
+
     <p-confirm-dialog message="Are you sure you want to proceed?" header="Confirmation" icon="pi pi-exclamation-triangle" />
 </p-drawer>

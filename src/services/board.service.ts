@@ -36,6 +36,15 @@ export class BoardService {
   deleteBoard(board: Board) {
     this.boards.update(boards => boards.filter(b => b.id !== board.id))
   }
+
+  updateBoard(board: Board, data: any) {
+    const newBoard = {...board, ...data}
+    this.boards.update(boards => boards.map(b => b.id === newBoard.id ? newBoard : b))
+    if (this.currentBoard()?.id === board.id) {
+      this.currentBoard.update(() => newBoard)
+    }
+  }
+
   selectCurrentBoard(id: string) {
     this.currentBoard.update(() => this.boards().find(b => b.id === id) || null)
   }
