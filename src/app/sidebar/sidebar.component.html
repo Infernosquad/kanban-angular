@@ -7,18 +7,23 @@
     <div class="board-menu">
         @for (item of boards; track item.id) {
             <div class="board-menu-item" [ngClass]="{ 'active': item.id === this.boardService.currentBoard()?.id }">
-                <a (click)="this.boardService.selectCurrentBoard(item.id)">{{ item.label }}</a>
+                <a (click)="this.boardService.selectCurrentBoard(item.id)">
+                    <span class="color-span" [style.background-color]="item.color"></span>
+                    {{ item.label }}
+                </a>
                 <i class="pi pi-ellipsis-h" (click)="op.toggle($event)"></i>
             </div>
             <p-popover #op>
-                <a>
-                    <i class="pi pi-pencil"></i>
-                    <span>Edit</span>
-                </a>
-                <a (click)="confirmDelete(item)">
-                    <i class="pi pi-pencil"></i>
-                    <span>Delete</span>
-                </a>
+                <div class="popover-menu">
+                    <a>
+                        <i class="pi pi-pencil"></i>
+                        <span>Edit</span>
+                    </a>
+                    <a (click)="confirmDelete(item)">
+                        <i class="pi pi-trash"></i>
+                        <span>Delete</span>
+                    </a>
+                </div>
             </p-popover>
         }
     </div>

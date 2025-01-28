@@ -19,7 +19,34 @@
     padding: 0.3rem 0.5rem;
     border-radius: 6px;
     cursor: pointer;
+    a {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      .color-span {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+    }
     &.active {
+      background: rgba(80, 48, 229, 0.08);
+    }
+  }
+}
+
+.popover-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  a {
+    display: flex;
+    gap: 0.5rem;
+    cursor: pointer;
+    border-radius: 6px;
+    align-items: center;
+    padding: 0.3rem 0.5rem;
+    &:hover {
       background: rgba(80, 48, 229, 0.08);
     }
   }

@@ -12,7 +12,8 @@ export class BoardService {
     {
       id: uuidv4(),
       label: 'Getting Things Done',
-      url: '/getting-things-done'
+      url: '/getting-things-done',
+      color: '#7AC555'
     }
   ])
   constructor() {
