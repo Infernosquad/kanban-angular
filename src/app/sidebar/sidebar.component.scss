@@ -1,0 +1,25 @@
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  i {
+    cursor: pointer;
+  }
+}
+
+.board-menu {
+  display: flex;
+  gap: 0.3rem;
+  flex-direction: column;
+  .board-menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    &.active {
+      background: rgba(80, 48, 229, 0.08);
+    }
+  }
+}

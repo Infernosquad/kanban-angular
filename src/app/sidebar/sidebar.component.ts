@@ -4,6 +4,8 @@ import {Drawer} from "primeng/drawer";
 import {PanelMenu} from "primeng/panelmenu";
 import {Ripple} from "primeng/ripple";
 import {BoardService} from "../../services/board.service";
+import {Popover} from "primeng/popover";
+import {Menu} from "primeng/menu";
 
 @Component({
   selector: 'app-sidebar',
@@ -11,7 +13,9 @@ import {BoardService} from "../../services/board.service";
     Button,
     Drawer,
     PanelMenu,
-    Ripple
+    Ripple,
+    Popover,
+    Menu
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'

@@ -1,10 +1,31 @@
-<p-drawer [(visible)]="displayDrawer" header="Boards" (onHide)="closeDrawer()">
-    <p-panelmenu [model]="this.boardService.boards()" styleClass="w-full md:w-20rem">
-        <ng-template #item let-item>
-            <a (click)="this.boardService.selectCurrentBoard(item.id)" pRipple class="flex items-center px-4 py-2 cursor-pointer group">
-                <span class="ml-2">{{ item.label }}</span>
-            </a>
-        </ng-template>
-    </p-panelmenu>
-    <p-button label="Add Board" icon="pi pi-plus" (click)="this.boardService.addBoard()"></p-button>
+<p-drawer [(visible)]="displayDrawer" (onHide)="closeDrawer()" closable="false">
+    <ng-template #header>
+        <h2 class="sidebar-header">Boards <i class="pi pi-plus-circle" (click)="this.boardService.addBoard()"></i></h2>
+    </ng-template>
+
+    @let boards = this.boardService.boards();
+    <div class="board-menu">
+        @for (item of boards; track item.id) {
+            <div class="board-menu-item active">
+                <a (click)="this.boardService.selectCurrentBoard(item.id)">
+                    <span class="ml-2">{{ item.label }}</span>
+                </a>
+
+                <i class="pi pi-ellipsis-h" (click)="op.toggle($event)"></i>
+
+            </div>
+            <p-popover #op>
+                <p-menu [model]="[
+                    {
+                        label: 'Edit',
+                        icon: 'pi pi-pencil',
+                    },
+                    {
+                        label: 'Delete',
+                        icon: 'pi pi-trash',
+                    }
+                ]" />
+            </p-popover>
+        }
+    </div>
 </p-drawer>
